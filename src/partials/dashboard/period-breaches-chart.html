@@ -1,0 +1,53 @@
+<div class="period-breaches-chart content-section">
+	<div class="content-section-header">
+		<div class="section-header-left">
+			Period Performance &nbsp;–&nbsp; Past 12 Months<span class="icon icon-dashboard-widget-info" title="Shows the amount of on schedule, about to breach and breached periods per hospital (data pertaining to the last 12 months).&#013;Clicking a hospital name shows data for that hospital's specialties.&#013;Clicking a specialty shows data for clinicians of that specialty and hospital."></span>
+		</div>
+		<div class="section-header-right">
+			<fullscreen></fullscreen>
+		</div>
+	</div>
+
+	<div class="content-section-body">
+		<div class="chart-legend-outer">
+			<div class="chart-legend">
+				<div class="chart-legend-item-left">
+					<span class="chart-legend-bar on-schedule"></span>
+				</div>
+				<div class="chart-legend-item-right">
+					Over 3 weeks
+				</div>
+				<div class="chart-legend-item-left">
+					<span class="chart-legend-bar about-to-breach"></span>
+				</div>
+				<div class="chart-legend-item-right">
+					Up to 3 weeks to breach
+				</div>
+				<div class="chart-legend-item-left">
+					<span class="chart-legend-bar breached"></span>
+				</div>
+				<div class="chart-legend-item-right">
+					Breached
+				</div>
+			</div>
+			<div class="chart-breadcrumbs">
+				<span ng-repeat="item in pbChart.breadcrumbs">
+					<span ng-class="{'link':!$last}" ng-click="pbChart.changeBreadcrumb(item)">{{item.name}}</span>
+					<span class="breadcrumb-separator" ng-hide="$last">\</span>
+				</span>
+			</div>
+		</div>
+		<div class="period-breaches-chart-container chart-container loading" ng-hide="pbChart.ajaxRequestPending">
+			<div class="chart-column-left">
+				<div class="chart-cell" ng-repeat="item in pbChart.getItems()">
+					<div class="chart-cell-inner">
+						<span ng-class="{'link':!item.noChildren}" 
+							ng-click="pbChart.addBreadcrumb(item)">{{item.name}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="chart-column-right">
+			</div>
+		</div>
+	</div>
+</div>

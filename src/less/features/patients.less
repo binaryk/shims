@@ -1,0 +1,170 @@
+@import "../widgets/popup.less";
+
+.patients-grid .filters {
+	padding: @content-section-padding;
+	height: 60px;
+}
+
+.patients-grid .icon-fullscreen {
+	float: right;
+}
+
+.patients-grid.content-section-body {
+	padding-bottom: @content-section-padding;
+}
+
+.patient-pathway.content-section-body {
+	padding-bottom: @content-section-padding;
+}
+
+.patient-pathway .header {
+	padding: @content-section-padding;
+}
+
+.patient-pathway .page-title {
+	height: 52px;
+	font-size: 26px;
+}
+
+.patient-pathway .page-title .patient-name {
+	color: @color-button;
+}
+
+.patient-pathway .page-title .nhs-number {
+	color: @color-text-dark;
+}
+
+.patient-pathway .right {
+	float: right;
+}
+
+.patient-pathway .header .filters .styled-select {
+	margin-left: 10px;
+}
+
+.patient-pathway .header .expand-collapse {
+	cursor: pointer;
+	padding-top: 7px;
+}
+
+.patient-pathway .header span.button-expand-collapse {	
+	vertical-align: middle;
+	margin-right: 7px;
+	margin-top: -2px;
+}
+
+.patient-pathway .tab-section {
+	margin-top: 20px;
+}
+
+.patient-pathway .tab-section:not(:last-child) {
+	margin-bottom: 60px;
+}
+
+.patient-pathway .tab-section .title {
+	padding: @content-section-padding;
+	font-size: 24px;
+	color: @color-button;
+}
+
+.patient-pathway .tabs li:first-child {
+	padding-left: @content-section-padding;
+}
+
+.patient-pathway .tabs li {
+	text-align: left;
+}
+
+.patient-pathway .subtab {
+	min-height: 100px;
+	padding: @content-section-padding;
+	padding-bottom: 0;
+}
+
+.patient-pathway .grid.events tbody tr:not(.search-row):hover td.action {
+	background: url(../img/edit.png) no-repeat center;
+}
+
+.patient-pathway .personal-info .grid {
+	width: 600px;
+}
+
+.patient-pathway .personal-info .grid tr:hover {
+	cursor: default;
+}
+
+.pathway-chart {
+	padding: @content-section-padding;
+	padding-top: 0;
+}
+
+.pathway-chart-body {
+	text-align: center;
+}
+
+.pathway-chart-popup {
+	padding: 15px !important;
+}
+
+.pathway-chart-popup .content-row {
+	text-align: left;
+}
+
+.pathway-chart-popup .content-row:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.pathway-chart-popup .content-row .text-date {
+	color: @color-button;
+}
+
+.pathway-chart-popup .content-row .text-event {
+	color: @color-text-dark;
+}
+
+.pathway-chart-popup .content-row .text-event.breach {
+	color: #F16981;
+}
+
+.pathway-chart-popup .content-row .text-date, .pathway-chart-popup .content-row .text-event {
+	margin-left: 7px;
+}
+
+.pathway-chart-popup .content-row .text-period {
+	color: @color-text-dark;
+}
+
+.breach-text {
+	color: red;
+}
+
+.breach-text.about-to-breach {
+	color: #BCB227;
+}
+
+.breach-text.postbreach {
+}
+
+.breaches-alert {
+	color: @color-button;
+}
+
+.breaches-alert:hover {
+	text-decoration: underline;
+	color: @color-button;
+}
+
+.link-tab.active .breaches-alert:hover {
+	text-decoration: none;
+}
+
+.breaches-alert span.icon-breaches-alert {
+	vertical-align: top;
+	margin-left: 7px;
+	margin-top: 2px;
+}
+
+.patient-pathway .grid.breaches tr:hover, .patient-pathway .grid.periods tr:hover,
+.patient-pathway .grid.history-log tr:hover {
+	cursor: default;
+}

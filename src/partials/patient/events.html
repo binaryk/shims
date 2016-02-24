@@ -1,0 +1,50 @@
+<div class="grid events">
+	<div controller="PaginationController">
+		<div class="footer" ng-show="showFooter()">
+			<pagination></pagination>
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th sortable column="gridColumns.eventCode" style="width: 60%">Event</th>
+					<th style="width: 110px">Status code</th>
+					<th sortable column="gridColumns.specialty" style="width: 40%">Specialty</th>
+					<th sortable column="gridColumns.targetDate" style="width: 100px">Target date</th>
+					<th sortable column="gridColumns.actualDate" style="width: 100px">Actual date</th>
+					<th style="width: 100px">Status</th>
+					<th style="width: 100px">Breaches</th>
+					<th style="width: 75px">Action</th>
+				</tr>
+				<tr class="search-row">
+					<th searchable column="gridColumns.eventCode"></th>
+					<th></th>
+					<th searchable column="gridColumns.specialty"></th>
+					<th grid-dropdown values="dateValues" selected="selectedTargetDate"></th>
+					<th grid-dropdown values="dateValues" selected="selectedActualDate"></th>
+					<th></th>
+					<th grid-dropdown values="breachStatusValues" selected="selectedBreachStatus"></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>			
+				<tr ng-show="showGrid()" ng-repeat="row in gridData" ng-click="onRowClick(row)">
+					<td>{{row.EventCode}}</td>
+					<td>{{row.StatusCode}}</td>
+					<td>{{row.Specialty}}</td>
+					<td>{{row.TargetDate | customDate}}</td>
+					<td>{{row.ActualDate | customDate}}</td>
+					<td class="center-text">{{row.EventStatus}}</td>
+					<td class="center-text" ng-bind-html="getBreachStatusHtml(row)"></td>
+					<td class="action"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<grid-messages loading="showLoading()" no-data="showNoData()" fail="showFail()"></grid-messages>
+
+		<div class="footer" ng-show="showFooter()">
+			<pagination></pagination>
+		</div>
+	</div>
+</div>

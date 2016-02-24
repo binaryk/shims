@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html ng-app="cpms">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title ng-bind="appTitle"></title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" ng-href="{{appTheme}}">
+	</head>
+
+	<body>
+
+		<div class="access-denied-container" ng-controller="AccessDeniedController as accessDenied">
+			Sorry, you don't have sufficient privileges to execute this action.<br/>
+			Click <span class="link" ng-click="accessDenied.logout()">here</span> if you want to login with a different account.
+		</div>
+
+		<script src="js/cpms-vendor.min.js"></script>
+		<script src="js/cpms-config.js"></script>
+		<script src="js/cpms.min.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html ng-app="cpms">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title ng-bind="appTitle"></title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" ng-href="{{appTheme}}">
+	</head>
+
+	<body>
+
+		<page class="hide">
+
+			<div ng-controller="EventBreachesGridController">
+				<div class="content-header">
+				</div>
+				<div class="content-body event-breaches-grid breaches-grid">
+
+					<div class="content-section">
+						<div class="content-section-body">
+
+							<div class="header">
+								<div class="filters">
+									<span ng-show="showDropdowns">
+										<span class="dropdown-icon" title="Hospitals"><span class="icon icon-hospital"></span></span>
+										<div class="styled-select sm">
+											<select ng-model="selectedHospital" ng-options="item.name for item in hospitals"
+												ng-change="onHospitalDropdownChange()">
+											</select>
+										</div>
+										<span class="dropdown-icon" title="Specialties"><span class="icon icon-specialty"></span></span>
+										<div class="styled-select sm">
+											<select ng-model="selectedSpecialty" ng-options="item.name for item in specialties"
+												ng-change="onSpecialtyDropdownChange()" ng-disabled="specialtyDropdownDisabled">
+											</select>
+										</div>
+										<span class="dropdown-icon" title="Clinicians"><span class="icon icon-clinician"></span></span>
+										<div class="styled-select sm">
+											<select ng-model="selectedClinician" ng-options="item.name for item in clinicians"
+												ng-change="onClinicianDropdownChange()" ng-disabled="clinicianDropdownDisabled">
+											</select>
+										</div>
+									</span>
+									<fullscreen></fullscreen>
+								</div>
+								<div class="filters-left">
+									<span ng-show="activeTab === '4'">
+										<div class="styled-select xm-sm">
+											<select 
+												ng-model="aboutToBreachDropdownSelectedValue"
+												ng-options="n.name for n in aboutToBreachDropdownValues"
+												ng-change="onAboutToBreachDropdownChange()">
+											</select>
+										</div>
+										<span>days to breach</span>
+									</span>
+									<span>
+										<input id="chkCancerOnly" type="checkbox" ng-model="cancerPeriodsOnly" />
+										<label for="chkCancerOnly">Cancer periods only</label>
+									</span>
+								</div>
+							</div>
+
+							<tabs bind="activeTab">
+								<tab value="4" style="width: 16.66%">Up to 3w to breach {{breachesCount.about}}</tab>
+								<tab value="3" style="width: 16.66%">3 days to breach {{breachesCount.three}}</tab>
+								<tab value="2" style="width: 16.66%">2 days to breach {{breachesCount.two}}</tab>
+								<tab value="1" style="width: 16.66%">1 day to breach {{breachesCount.one}}</tab>
+								<tab value="0" style="width: 16.66%">Breach today {{breachesCount.breach}}</tab>
+								<tab value="-1" style="width: 16.66%">Postbreach {{breachesCount.postbreach}}</tab>
+							</tabs>
+
+							<div class="grid" ng-controller="PaginationController">
+								<div class="footer" ng-show="showFooter()">
+									<pagination></pagination>
+								</div>
+
+								<table>
+									<thead>
+										<tr>
+											<th ng-show="activeTab === '-1'" column="gridColumns.breachedBy"
+												style="width: 100px">Breached by</th>
+											<th ng-show="showPatientInfo" column="gridColumns.nhsNo" style="width: 112px">NHS No</th>
+											<th ng-show="showPatientInfo" sortable column="gridColumns.patient" style="width: 18.33%">
+												Patient
+											</th>
+											<th sortable column="gridColumns.lastEvent" style="width: 30%">Current event</th>
+											<th sortable column="gridColumns.specialty" style="width: 18.33%">Specialty</th>
+											<th sortable column="gridColumns.clinician" style="width: 18.33%">Clinician</th>
+											<th column="gridColumns.ppiNo" style="width: 15%">PPI No</th>
+											<th sortable column="gridColumns.spent" style="width: 60px">Spent</th>
+											<th sortable column="gridColumns.toGo" style="width: 60px">To go</th>
+											<!-- <th column="gridColumns.plusMinus" style="width: 60px">+ / -</th> -->
+										</tr>
+										<tr class="search-row">
+											<th ng-show="activeTab === '-1'" column="gridColumns.breachedBy"></th>
+											<th searchable column="gridColumns.nhsNo" numeric ng-show="showPatientInfo"></th>
+											<th searchable column="gridColumns.patient" ng-show="showPatientInfo"></th>
+											<th searchable column="gridColumns.lastEvent"></th>
+											<th searchable column="gridColumns.specialty"></th>
+											<th searchable column="gridColumns.clinician"></th>
+											<th column="gridColumns.ppiNo"></th>
+											<th column="gridColumns.spent"></th>
+											<th column="gridColumns.toGo"></th>
+											<!-- <th column="gridColumns.plusMinus"></th> -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-show="showGrid()" ng-repeat="row in gridData">
+											<td ng-show="activeTab === '-1'" class="center-text">{{row.PostBreachDays | days}}</td>
+											<td class="center-text" ng-show="showPatientInfo">{{row.PatientNHSNumber | nhsNumber}}</td>
+											<td ng-show="showPatientInfo"><span class='link' ng-click="onRowClick(row)">
+												{{row.PatientName}}
+											</span></td>
+											<td breaches-row-icon>{{row.EventCode}}</td>
+											<td>{{row.Specialty}}</td>
+											<td>{{row.Clinician}}</td>
+											<td class="center-text">{{row.PPINumber}}</td>
+											<td class="center-text">{{row.DaysInPeriod}}</td>
+											<td class="center-text">{{row.DaysRemainingInPeriod}}</td>
+											<!-- <td class="center-text">{{row.DelayOrAdvancementDays}}</td> -->
+										</tr>
+									</tbody>
+								</table>
+
+								<grid-messages loading="showLoading()" no-data="showNoData()" fail="showFail()"></grid-messages>
+
+								<div class="footer" ng-show="showFooter()">
+									<pagination></pagination>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</page>
+
+		<script src="js/cpms-vendor.min.js"></script>
+		<script src="js/cpms-config.js"></script>
+		<script src="js/cpms.min.js"></script>
+
+	</body>
+</html>

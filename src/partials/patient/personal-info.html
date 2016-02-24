@@ -1,0 +1,36 @@
+<div class="subtab personal-info">
+	<table class="info-grid">
+		<tbody>
+			<tr>
+				<td>Name</td>
+				<td>{{patient.PatientName}}</td>
+			</tr>
+			<tr>
+				<td>NHS Number</td>
+				<td>{{patient.NHSNumber}}</td>
+			</tr>
+			<tr>
+				<td>Date of birth</td>
+				<td>{{patient.DateOfBirth | customDate}}</td>
+			</tr>
+			<tr>
+				<td>Age</td>
+				<td>{{patient.Age}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="grid border">
+		<table>
+			<thead>
+				<th>Hospital</th>
+				<th style="width: 185px">PPI Number</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="row in patientRows">
+					<td>{{row.Hospital}}</td>
+					<td>{{row.PpiNumber}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

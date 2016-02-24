@@ -1,0 +1,52 @@
+<div class="navbar-container">
+
+	<div class="navbar-body">
+		<div class="navbar-body-title">
+			<a href="index.html" target="_self"><span class="logo"></span></a>
+		</div>
+		<div class="navbar-body-user">
+			<span class="avatar-container">
+				<span class="icon icon-avatar"></span>
+				<span class="username" ng-bind="navbar.user.fullName"></span>
+				<span class="icon icon-settings-arrow"></span>
+			</span>
+			<a href="javascript:;">
+				<span class="icon icon-options-top"></span>
+			</a>
+		</div>
+	</div>
+
+	<div class="popup navbar-popup-avatar">
+		<span class="popup-arrow"></span>
+		<div class="photo"></div>
+		<div class="info">
+			<div class="top">
+				<p class="title" ng-bind="navbar.user.fullName"></p>
+				<p class="email" ng-bind="navbar.user.email"></p>
+				<span class="link" ng-click="navbar.goToAccount()">Account</span>
+			</div>
+			<div class="bottom">
+				<button class="button-lg" ng-click="navbar.logout()">Log out</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup navbar-popup-settings">
+		<span class="popup-arrow"></span>		
+		<div class="row"><a href="../help.pdf" target="_blank">User guide</a></div>
+		<div class="row" ng-show="navbar.showAdminPortal"><a href="../Admin" target="_blank">Administrator portal</a></div>
+		<span class="link" ng-click="navbar.goToManageDashboard()">Manage dashboard</span>		
+		<div class="themes">
+			<div class="text">Theme:</div>
+			<div class="theme-icons">
+				<span 
+					ng-repeat="theme in navbar.themes" 
+					ng-class="navbar.getThemeClass(theme)"
+					ng-click="navbar.onThemeClick(theme)"
+					ng-attr-title="{{theme.name}}">
+				</span>
+			</div>
+		</div>
+	</div>
+
+</div>

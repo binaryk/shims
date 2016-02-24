@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html ng-app="cpms">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title ng-bind="appTitle"></title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" ng-href="{{appTheme}}">
+	</head>
+
+	<body>
+
+		<page class="hide">
+			<div ng-controller="PatientPathwayController">
+				<div class="content-header">
+				</div>
+				<div class="content-body">
+
+					<div class="content-section">
+						<div class="content-section-body patient-pathway">
+
+							<div class="header">								
+								<div class="page-title">
+									<span class="patient-name">{{patientName}} <span class="nhs-number">({{nhsNumber}})</span>
+									<div class="right">
+										<fullscreen></fullscreen>
+									</div>
+								</div>
+								<div class="filters">
+									Pathway
+									<div class="styled-select x-lg">
+										<select ng-model="selectedPathway" ng-options="item.name for item in pathwayValues" 
+											ng-change="onPathwayDropdownChange()">
+										</select>
+									</div>
+									<div class="right expand-collapse">
+										<span ng-click="chartExpanded = !chartExpanded">
+											<span class="icon button-expand-collapse"
+												ng-class="{'icon-collapse-bw':chartExpanded, 'icon-expand-bw':!chartExpanded}">
+											</span>
+											<span class="hide-pathway-text">Hide pathway</span>
+										<span>
+									</div>
+								</div>
+							</div>
+							<div class="clear"></div>
+
+							<div class="pathway-chart">								
+								<div class="pathway-chart-body" ng-show="chartExpanded">
+									<pathway-chart></pathway-chart>
+								</div>
+							</div>
+
+							<div class="tab-section">
+								<div class="title">Period details</div>
+
+								<tabs bind="activePeriodDetailsTab">
+									<tab active value="events-flow" style="width: 150px">Events flow</tab>
+									<tab value="breaches" style="width: 150px">
+										Event breaches {{eventBreachesCount}}
+									</tab>
+								</tabs>
+
+								<patient-events ng-show="activePeriodDetailsTab === 'events-flow'"></patient-events>
+								<patient-breaches ng-show="activePeriodDetailsTab === 'breaches'"
+									ng-controller="PatientBreachesController"></patient-breaches>
+							</div>
+
+							<div class="tab-section">
+								<div class="title">General information</div>
+
+								<tabs bind="activeGeneralInfoTab">
+									<tab active value="personal-info" style="width: 200px">Personal information</tab>
+									<tab value="patient-periods" style="width: 150px">Patient periods</tab>
+									<tab value="history-log" style="width: 150px">History log</tab>
+								</tabs>
+
+								<patient-personal-info ng-show="activeGeneralInfoTab === 'personal-info'"
+									ng-controller="PatientPersonalInfoController"></patient-personal-info>
+
+								<patient-periods ng-show="activeGeneralInfoTab === 'patient-periods'"></patient-periods>
+
+								<patient-history-log ng-show="activeGeneralInfoTab === 'history-log'"
+									ng-controller="PatientHistoryLogController"></patient-history-log>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</page>
+
+		<script src="js/cpms-vendor.min.js"></script>
+		<script src="js/cpms-config.js"></script>
+		<script src="js/cpms.min.js"></script>
+
+	</body>
+</html>

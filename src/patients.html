@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html ng-app="cpms">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title ng-bind="appTitle"></title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" ng-href="{{appTheme}}">
+	</head>
+
+	<body>
+
+		<page class="hide">
+			<div ng-controller="PatientsGridController">
+				<div class="content-header">
+				</div>
+				<div class="content-body">
+
+					<div class="content-section">
+						<div class="content-section-body patients-grid">
+
+							<div class="filters">
+								<fullscreen></fullscreen>
+							</div>
+
+							<div class="clear"></div>
+
+							<div class="grid" ng-controller="PaginationController">
+								<div class="footer" ng-show="showFooter()">
+									<pagination></pagination>
+								</div>
+
+								<table>
+									<thead>
+										<tr>
+											<th sortable column="gridColumns.name" style="width: 50%">Name</th>
+											<th sortable column="gridColumns.dateOfBirth" style="width: 110px">Date of birth</th>
+											<th sortable column="gridColumns.age" style="width: 60px">Age</th>
+											<th sortable column="gridColumns.hospital" style="width: 50%">Hospital</th>
+											<th style="width: 185px">PPI No</th>
+										</tr>
+										<tr class="search-row">
+											<th searchable column="gridColumns.name"></th>
+											<th></th>
+											<th></th>
+											<th searchable column="gridColumns.hospital"></th>
+											<th searchable column="gridColumns.ppiNo"></th>
+										</tr>
+									</thead>
+									<tbody>										
+										<tr ng-show="showGrid()" ng-repeat="row in gridData">
+											<td><span class="link" ng-click="onRowClick(row)">{{row.PatientName}}</span></td>
+											<td class="center-text">{{row.DateOfBirth | date:'dd/MM/yyyy'}}</td>
+											<td class="center-text">{{row.Age}}</td>
+											<td>{{row.Hospital}}</td>
+											<td>{{row.PpiNumber}}</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<grid-messages loading="showLoading()" no-data="showNoData()" fail="showFail()"></grid-messages>
+
+								<div class="footer" ng-show="showFooter()">
+									<pagination></pagination>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</page>
+
+		<script src="js/cpms-vendor.min.js"></script>
+		<script src="js/cpms-config.js"></script>
+		<script src="js/cpms.min.js"></script>
+
+	</body>
+</html>

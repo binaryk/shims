@@ -1,0 +1,179 @@
+@import "../widgets/popup.less";
+
+@change-photo-background-color: rgba(249, 126, 118, 0.5); // same as @color-button
+
+.navbar-container {
+	height: 59px;
+	background-color: @color-navbar;
+}
+
+.navbar-body {
+	margin: 0 auto;
+	padding-top: 3px;
+	background-color: @color-navbar;
+}
+
+.navbar-body-title {
+	float: left;
+}
+
+.navbar-body-title h1.title {
+	cursor: pointer;
+}
+
+.navbar-body-user {
+	float: right;
+	text-align: right;
+	color: @color-navbar-text;
+	margin-right: @content-section-padding;
+}
+
+.navbar-body-user a, .navbar-body-user a:active, .navbar-body-user a:visited {
+	color: @color-navbar-text;
+}
+
+.navbar-body-user .avatar-container {
+	cursor: pointer;
+}
+
+.navbar-body-user .username {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 19px;
+}
+
+.navbar-body-user span.icon-avatar {
+	margin-top: 8px;
+}
+
+.navbar-body-user .username {
+	margin-left: 10px;
+}
+
+.navbar-body-user span.icon-settings-arrow {
+	margin-left: 10px;
+	margin-top: 15px;
+	vertical-align: top;
+}
+
+.top-container {
+	width: auto;
+	background-color: @color-menu-light;
+}
+
+.navbar-popup-avatar {
+	width: 421px;
+}
+
+.navbar-popup-avatar .photo {
+	float: left;
+	width: 120px;
+	height: 120px;
+	background: url(../img/profile_photo.jpg) no-repeat center;
+	padding-top: 90px;
+}
+
+.navbar-popup-avatar .info {
+	margin-left: 120px;
+	padding-left: 20px;
+}
+
+.navbar-popup-avatar .info .top {
+	height: 85px;
+}
+
+.navbar-popup-avatar .info .bottom {
+	height: 35px;
+}
+
+.navbar-popup-avatar .info .title {
+	margin: 0;
+	color: @color-text-dark;	
+}
+
+.navbar-popup-avatar .info .email {
+	margin: 4px 0 4px 0;
+	color: @color-text-dark;	
+}
+
+.navbar-popup-avatar .info .link {
+	display: inline-block;
+	margin: 6px 25px 0 0;
+	color: @color-link;
+	cursor: pointer;
+}
+
+.navbar-popup-avatar .info .link:hover {
+	text-decoration: underline;
+}
+
+.nav-breadcrumb.link {
+	cursor: pointer;
+}
+
+.nav-breadcrumb.link:hover {
+	text-decoration: underline;
+}
+
+.navbar-container .logo {
+	display: block;
+	width: 147px;
+	height: 54px;	
+	margin-left: 16px;
+	.background-logo;
+}
+
+.navbar-popup-settings {
+	width: 200px;
+}
+
+.navbar-popup-settings .link {
+	color: @color-link;
+	cursor: pointer;
+}
+
+.navbar-popup-settings .link:hover {
+	text-decoration: underline;
+}
+
+.navbar-popup-settings .themes {
+}
+
+.navbar-popup-settings .themes .text {
+	margin-top: 10px;
+}
+
+.navbar-popup-settings .theme-icons {
+	margin-top: 10px;
+}
+
+.navbar-popup-settings .theme-icons span {
+	display: inline-block;
+	vertical-align: top;
+	width: 32px;
+	height: 32px;
+	margin-right: 4px;
+	cursor: pointer;
+}
+
+@inset-box-shadow: inset 0px 0px 16px 2px rgba(255, 255, 255, 1);
+
+.navbar-popup-settings .theme-icons span.active {
+	cursor: default;
+
+	-moz-box-shadow:	@inset-box-shadow;
+	-webkit-box-shadow:	@inset-box-shadow;
+	box-shadow:			@inset-box-shadow;
+}
+
+.navbar-popup-settings .navy {
+	background-color: #2E3641;
+}
+
+.navbar-popup-settings .teal {
+	background-color: #179C8C;
+}
+
+.navbar-popup-settings .row {
+	margin-bottom: 5px;
+}

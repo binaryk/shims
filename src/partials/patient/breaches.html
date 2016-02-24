@@ -1,0 +1,18 @@
+<div class="grid breaches">
+	<table>
+		<thead>
+			<tr>
+				<th style="width: 100%">Event</th>
+				<th style="width: 200px">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-show="showGrid()" ng-repeat="row in gridData">
+				<td>{{row.EventCode}}</td>
+				<td class="center-text" ng-bind-html="getStatusHtml(row)"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<grid-messages loading="showLoading()" no-data="showNoData()" fail="showFail()"></grid-messages>
+</div>

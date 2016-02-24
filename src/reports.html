@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html ng-app="cpms">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title ng-bind="appTitle"></title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" ng-href="{{appTheme}}">
+	</head>
+
+	<body>
+
+		<page class="hide">
+			<div ng-controller="ReportsController as reports">
+				<div class="content-header">
+				</div>
+				<div class="reports content-body">
+					<div class="content-section">
+						<div class="content-section-body">
+
+							<div class="section" ng-show="reports.showDates">
+								<div class="date-months" ng-show="reports.showDateMonths">
+									<label>From:</label>
+									<div class="styled-select sm">
+										<select ng-model="reports.monthFrom" ng-options="item.name for item in reports.months">
+										</select>
+									</div>
+									<div class="styled-select x-sm">
+										<select ng-model="reports.yearFrom" ng-options="item for item in reports.years">
+										</select>
+									</div>
+
+									<label>To:</label>
+									<div class="styled-select sm">
+										<select ng-model="reports.monthTo" ng-options="item.name for item in reports.months">
+										</select>
+									</div>
+									<div class="styled-select x-sm">
+										<select ng-model="reports.yearTo" ng-options="item for item in reports.years">
+										</select>
+									</div>
+								</div>
+
+								<div class="date-months-links" ng-show="reports.showDateMonths">
+									<span class="link" ng-click="reports.setLastQuarter()">Last quarter</span><br/>
+									<span class="link" ng-click="reports.setLastHalfYear()">Last half year</span><br/>
+									<span class="link" ng-click="reports.setLastYear()">Last year</span><br/>
+								</div>
+
+								<div class="clear"></div>
+
+								<div class="date-weeks" ng-show="reports.showDateWeeks">
+									<label>Weeks to breach:</label>
+									<div class="styled-select sm">
+										<select ng-model="reports.weeksToBreach" ng-options="item.name for item in reports.weeks">
+										</select>
+									</div>
+								</div>
+							</div>							
+
+							<div class="section">
+								<div class="trust-filters">
+									<label>Hospital:</label>
+									<div class="styled-select md">
+										<select ng-model="reports.selectedHospital" ng-options="item.name for item in reports.hospitals"
+											ng-change="reports.onHospitalDropdownChange()">
+										</select>
+									</div><br/>
+									<label>Specialty:</label>
+									<div class="styled-select md">
+										<select ng-model="reports.selectedSpecialty" ng-options="item.name for item in reports.specialties"
+											ng-change="reports.onSpecialtyDropdownChange()" ng-disabled="reports.specialtyDropdownDisabled">
+										</select>
+									</div><br/>
+									<label>Clinician:</label>
+									<div class="styled-select md">
+										<select ng-model="reports.selectedClinician" ng-options="item.name for item in reports.clinicians"
+											ng-disabled="reports.clinicianDropdownDisabled">
+										</select>
+									</div>
+								</div>
+
+								<div class="granularity">
+									<div>
+										Granularity:
+									</div>						
+									<div>
+										<input type="radio" ng-model="reports.granularity" name="granularity" 
+											value="hospital" id="grHospital">
+										<label for="grHospital">Hospital</label>
+									</div>
+									<div>
+										<input type="radio" ng-model="reports.granularity" name="granularity" 
+											value="specialty" id="grSpecialty">
+										<label for="grSpecialty">Specialty</label>
+									</div>
+									<div>
+										<input type="radio" ng-model="reports.granularity" name="granularity" 
+											value="clinician" id="grClinician">
+										<label for="grClinician">Clinician</label>
+									</div>
+								</div>
+
+								<div class="clear"></div>
+							</div>
+
+							<div ng-show="reports.showLayout" class="layout section-sm">
+								<label>Layout:</label>
+
+								<span ng-show="reports.showTabular">
+									<input type="radio" ng-model="reports.layout" name="layout" value="tabular" id="lyTabular">
+									<label for="lyTabular">Tabular</label>
+								</span>
+
+								<span ng-show="reports.showBarChart">
+									<input type="radio" ng-model="reports.layout" name="layout" value="barChart" id="lyBarChart">
+									<label for="lyBarChart">Bar chart</label>
+								</span>
+							</div>
+
+							<div class="buttons">
+								<button class="button-lg" 
+									ng-show="reports.showPDF"
+									ng-click="reports.generateReport()">
+									Generate PDF
+								</button>
+								<button class="button-lg" 
+									ng-show="reports.showExcel" 
+									ng-click="reports.exportResults()">
+									Generate Excel
+								</button>
+								<span class="download-loading loading" ng-show="reports.ajaxRequestPending"></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</page>
+
+		<script src="js/cpms-vendor.min.js"></script>
+		<script src="js/cpms-config.js"></script>
+		<script src="js/cpms.min.js"></script>
+
+	</body>
+</html>

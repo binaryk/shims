@@ -1,0 +1,135 @@
+@import "../widgets/popup.less";
+
+.link {
+	color: @color-link;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.link:hover, .link-hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+a, a:active, a:visited {
+	.link;
+}
+
+a:hover {
+	.link-hover;
+}
+
+.content-container {
+	margin-left: 270px;
+	width: auto;
+	background-color: @color-background;
+}
+
+.content-header {
+}
+
+.content-body {
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 16px;
+}
+
+.content-section {
+	color: @color-text-dark;	
+	border-left: 1px solid @color-border;
+	margin-bottom: 18px;
+	overflow: auto;
+}
+
+.dashboard .content-section {
+	border-left: 7px solid @color-button;
+}
+
+.content-section-header {
+	background-color: @color-foreground;
+	height: 60px;
+	border: 1px solid @color-border;
+	border-left: 0;
+	border-bottom: 0;
+	padding: 16px 0 0 16px;
+	font-size: 26px;
+	color: @color-button;
+}
+
+.section-header-left {
+	float: left;
+}
+
+.section-header-right {
+	float: right;
+	margin-top: -4px;
+	margin-right: 14px;
+}
+
+.section-header-right .icon-settings {
+	vertical-align: top;
+	margin-left: 10px;
+}
+
+.content-section-body {
+	border: 1px solid @color-border;
+	border-left: 0;
+	background-color: @color-foreground;
+	color: @color-text-dark;
+	overflow: hidden;
+}
+
+.dashboard .content-section-body {
+	border-top: 0;
+}
+
+.content-header-left {
+	float: left;
+}
+
+.content-header-right {
+	float: right;
+	margin-top: -7px;
+	margin-right: 16px;
+}
+
+.content-section-popup {
+	width: 160px;
+	color: @color-text-dark;
+}
+
+.content-section-popup .settings-row:not(:last-child) {
+	margin-bottom: 7px;
+}
+
+.content-section-popup .settings-row input[type="radio"] {
+	vertical-align: middle;
+	margin-right: 7px;
+}
+
+.content-section.fullscreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: @color-foreground;
+	border: 0;
+}
+
+.body-fullscreen {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	overflow: hidden;
+	background: @color-foreground;
+}
+
+.page-loading {
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;	
+	width: 250px;
+	height: 250px;
+	background: url(../img/loading.gif) no-repeat center transparent;
+}

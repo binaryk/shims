@@ -1,0 +1,37 @@
+{
+  "name": "cpms",
+  "description": "Care Pathway Management System",
+  "private": true,
+  "browser": {
+    "jquery": "./shims/jquery.min.js",
+    "angular": "./shims/angular.min.js",
+    "angular-animate": "./shims/angular-animate.min.js",
+    "angular-sanitize": "./shims/angular-sanitize.min.js",
+    "angular-timeago": "./shims/angular-timeago.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "angular": "angular",
+    "angular-animate": "",
+    "angular-sanitize": "",
+    "angular-timeago": ""
+  },
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "printf": "^0.2.0"
+  },
+  "devDependencies": {
+    "assemble-less": "^0.7.0",
+    "browserify": "^4.2.3",
+    "browserify-shim": "^3.6.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^2.1.4",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^0.11.3",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-configs": "^0.4.0",
+    "load-grunt-tasks": "^0.6.0"
+  }
+}

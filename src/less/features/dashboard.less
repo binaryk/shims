@@ -1,0 +1,95 @@
+.manage-dashboard {
+}
+
+.manage-dashboard.content-section-body {
+	padding: @content-section-padding;
+}
+
+.manage-dashboard button {
+	background-color: @color-foreground;
+	
+	width: 30px;
+	height: 30px;
+
+	border: 1px solid @color-border;
+	margin: 0 2px 5px 2px;
+	outline: 0;
+
+	text-align: center;
+	cursor: pointer;
+}
+
+.manage-dashboard button:hover:not(.disabled) {
+	background-color: @color-background !important;	
+}
+
+.manage-dashboard button.disabled {
+	cursor: default;
+}
+
+@inset-box-shadow: inset 5px 5px 5px -5px #a0a0a0;
+
+.manage-dashboard button:active, .manage-dashboard button.active {
+	background-color: @color-foreground-alt;	
+
+	-moz-box-shadow:	@inset-box-shadow;
+	-webkit-box-shadow:	@inset-box-shadow;
+	box-shadow:			@inset-box-shadow;
+}
+
+.manage-dashboard .listbox {
+	height: 170px;
+	padding: 5px;
+	border: 1px solid @color-border;
+	overflow: auto;
+}
+
+.manage-dashboard .listbox ul {
+	margin: 0;
+	padding: 0;
+}
+
+.manage-dashboard .listbox li {
+	margin: 0;
+	padding: 2px;
+	cursor: default;
+}
+
+.manage-dashboard .listbox li:hover {
+	background-color: lightblue;
+}
+
+.manage-dashboard .listbox li.active {
+	background-color: skyblue;
+}
+
+.manage-dashboard .container {
+}
+
+.manage-dashboard .text {
+	margin-bottom: 5px;
+}
+
+.manage-dashboard .left {
+	width: 45.5%;
+	float: left;
+}
+
+.manage-dashboard .middle {
+	text-align: center;
+	width: 5%;
+	float: left;
+	padding-top: 77px;
+}
+
+.manage-dashboard .right {
+	width: 45.5%;
+	float: left;
+}
+
+.manage-dashboard .right-buttons {
+	text-align: right;
+	width: 4%;
+	float: left;
+	padding-top: 77px;
+}

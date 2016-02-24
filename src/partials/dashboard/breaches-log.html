@@ -1,0 +1,27 @@
+<div class="content-section breaches-log">
+	<div class="content-section-header">
+		<div class="section-header-left">
+			Breaches log<span class="icon icon-dashboard-widget-info" title="Shows per patient alerts for:&#013;- periods which are up to 21 days to breach&#013;- event milestones which are up to 3 days to breach, are on breach date, or have already breached.&#013;Each row's link leads to the Patient details page for that patient."></span>
+		</div>
+		<div class="section-header-right">
+			Show: 
+			<div class="styled-select md">
+				<select ng-model="breachesLog.selectedDisplayType" ng-options="item.name for item in breachesLog.displayTypes"></select>
+			</div>
+			<fullscreen></fullscreen>
+		</div>
+	</div>
+
+	<div class="content-section-body">
+		<div class="content loading">
+			<div class="row" ng-repeat="item in breachesLog.getItems()">
+				<div class="row-left">
+					<span class="icon icon-activity-log-type breaches" ng-attr-title="{{item.displayType}}"></span>
+				</div>
+				<div class="row-right" ng-attr-title="{{item.name + item.text}}">
+					<span ng-if="breachesLog.itemHasLink(item)"><a ng-href="{{item.url}}" target="_self">{{item.name}}</a></span>{{item.text}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="pagination" ng-hide="numPages <= 1">
+	<span class="go-to-page">
+		<span class="link" ng-click="onGoToPageEnter()">Go to page</span>
+		<input ng-model="goToPage" on-enter="onGoToPageEnter()" type="text" /> / {{numPages}}		
+	</span>
+	<span class="separator">|</span>
+
+	<span
+		ng-class="{'disabled':activePage === 0, 'link':activePage !== 0}"
+		ng-click="setPage(0)">First</span>
+	<span class="separator">|</span>
+
+	<span
+		ng-class="{'disabled':activePage === 0, 'link':activePage !== 0}"
+		ng-click="prevPage()">Previous</span>
+	<span class="separator">|</span>
+
+	<span
+		ng-repeat="n in paginationArray" 
+		ng-class="{'active':n === activePage, 'link':n !== activePage}"
+		ng-click="setPage(n)">{{n + 1}}
+	</span>
+	<span class="separator">|</span>
+
+	<span
+		ng-class="{'disabled':activePage === numPages - 1, 'link':activePage !== numPages - 1}"
+		ng-click="nextPage()">Next</span>
+	<span class="separator">|</span>
+
+	<span
+		ng-class="{'disabled':activePage === numPages - 1, 'link':activePage !== numPages - 1}"
+		ng-click="setPage(numPages - 1)">Last</span>
+</div>

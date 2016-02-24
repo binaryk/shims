@@ -1,0 +1,27 @@
+.popup {
+	display: none;
+
+	background: @color-foreground;
+	position: absolute;
+	padding: 25px;
+	border: 1px solid @color-border;
+
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow:	0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+	box-shadow:			0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+}
+
+.popup-arrow {
+	display: inline-block;
+	width: 20px;
+	height: 10px;
+	position: absolute;
+	right: 8px;
+	top: -10px;	
+	background: url(../img/popup_arrow.png) no-repeat center;
+}
+
+.popup-arrow.left {
+	left: 8px;
+	right: auto;
+}

@@ -1,0 +1,41 @@
+<div class="grid history-log">
+	<div ng-controller="PaginationController">
+		<div class="footer" ng-show="showFooter()">
+			<pagination></pagination>
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th column="gridColumns.date" style="width: 100px">Date</th>
+					<th column="gridColumns.eventName" style="width: 40%">Event</th>
+					<th column="gridColumns.description" style="width: 60%">Description</th>
+					<th column="gridColumns.targetDate" style="width: 100px">Target date</th>
+					<th column="gridColumns.actualDate" style="width: 100px">Actual date</th>
+				</tr>
+				<tr class="search-row">
+					<th grid-dropdown values="dateValues" selected="selectedImportDate"></th>
+					<th searchable column="gridColumns.eventName"></th>
+					<th searchable column="gridColumns.description"></th>
+					<th grid-dropdown values="dateValues" selected="selectedTargetDate"></th>
+					<th grid-dropdown values="dateValues" selected="selectedActualDate"></th>
+				</tr>
+			</thead>
+			<tbody>			
+				<tr ng-show="showGrid()" ng-repeat="row in gridData" ng-click="onRowClick(row)">
+					<td>{{row.ImportDate | customDate}}</td>
+					<td>{{row.EventCode}}</td>
+					<td>{{row.Description}}</td>
+					<td>{{row.TargetDate | customDate}}</td>
+					<td>{{row.ActualDate | customDate}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<grid-messages loading="showLoading()" no-data="showNoData()" fail="showFail()"></grid-messages>
+
+		<div class="footer" ng-show="showFooter()">
+			<pagination></pagination>
+		</div>
+	</div>
+</div>

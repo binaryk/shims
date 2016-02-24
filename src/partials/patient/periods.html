@@ -1,0 +1,24 @@
+<div class="grid periods">
+	<table>
+		<thead>
+			<tr>
+				<th style="width: 50%">Name</th>
+				<th style="width: 50%">Organization code</th>
+				<th style="width: 100px">Start date</th>
+				<th style="width: 100px">End date</th>
+				<th style="width: 110px">Days in period</th>
+				<th style="width: 100px">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in periodValues">
+				<td>{{row.value.Name}}</td>
+				<td>{{row.value.OrganizationCode}}</td>
+				<td>{{row.value.StartDate | customDate}}</td>
+				<td>{{row.value.StopDate | customDate}}</td>
+				<td>{{row.value.DaysInPeriod}}</td>
+				<td class="center-text">{{row.value.Status}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

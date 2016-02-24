@@ -1,0 +1,136 @@
+@import "../widgets/popup.less";
+
+@chart-column-left-width: 250px;
+
+.breaches-chart {
+	overflow: hidden !important;
+}
+
+.breaches-chart.content-section {
+	background: @color-foreground;
+}
+
+.breaches-chart .content-section-body {
+	padding: 1px;
+	height: 264px;	
+}
+
+.breaches-chart .chart {
+	height: 100%;
+}
+
+.chart-legend-outer {
+	height: 73px;
+}
+
+.chart-legend {
+	float: right;
+	display: table;
+
+	margin-right: 16px;
+	padding: 7px 10px 7px 10px;
+}
+
+.chart-legend-item-left {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.chart-legend-item-right {
+	color: @color-text-dark;
+
+	padding-left: 10px;
+
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.chart-legend-item-right:not(:last-child) {
+	padding-right: 20px;
+}
+
+.chart-legend-bar {
+	display: inline-block;
+	width: 25px;
+	height: 4px;
+	margin-bottom: 3px;
+}
+
+.chart-legend-bar.on-schedule {
+	background: @color-chart-on-schedule;
+}
+
+.chart-legend-bar.about-to-breach {
+	background: @color-chart-about-to-breach;
+}
+
+.chart-legend-bar.breached {
+	background: @color-chart-breached;
+}
+
+.chart-container {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: @content-section-padding;
+	height: 58px * 5;
+}
+
+.chart-column-left {
+	width: @chart-column-left-width - @content-section-padding;
+	float: left;
+}
+
+.chart-column-right {
+	margin-left: @chart-column-left-width - @content-section-padding;
+	height: 100%;
+}
+
+.chart-cell {	
+	border-bottom: 2px solid @color-background;
+}
+
+.chart-cell:nth-child(even) {
+	background-color: @color-foreground-alt;
+}
+
+.chart-cell-inner {
+	height: 57px;
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: @content-section-padding;
+	padding-right: @content-section-padding;
+
+	color: @color-text-dark;
+}
+
+.chart-breadcrumbs {
+	color: @color-text-dark;
+}
+
+.chart-breadcrumbs {
+	padding: @content-section-padding;
+}
+
+.breadcrumb-separator {
+	margin: 0 9px 0 10px;
+}
+
+.breached-events-chart, .period-breaches-chart {
+	overflow: hidden !important;
+}
+
+.breached-events-chart .content-section-body, .period-breaches-chart .content-section-body {
+	padding: 0;
+}
+
+.breached-events-chart .icon-fullscreen, .period-breaches-chart .icon-fullscreen {
+	margin-bottom: 4px;
+}
+
+.period-breaches-chart .content-section-body {
+	min-height: 385px;
+}
+
+.body-fullscreen .period-breaches-chart .content-section-body {
+	height: 100%;
+}

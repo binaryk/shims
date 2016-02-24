@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html ng-app="cpms">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title ng-bind="appTitle"></title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" ng-href="{{appTheme}}">
+	</head>
+
+	<body>
+
+		<div class="login-container" ng-controller="LoginController as login">
+			<form>
+				<div class="row row-logo">
+					<span class="logo"></span>
+				</div>
+				<div class="row">
+					<label for="username">Username:</label><input type="text" id="username" maxlength="30" ng-model="login.username">
+				</div>
+				<div class="row">
+					<label for="password">Password:</label><input type="password" id="password" maxlength="30" ng-model="login.password">
+				</div>
+				<div class="row">
+					<label for="rememberMe">Remember me</label><input type="checkbox" id="rememberMe" ng-model="login.rememberMe">
+				</div>
+				<div class="row row-button">
+					<button type="submit" class="button-lg" ng-click="login.login()">Login</button>
+				</div>
+				<div class="row row-message">
+					{{login.message}}
+				</div>
+			</form>
+		</div>
+
+		<script src="js/cpms-vendor.min.js"></script>
+		<script src="js/cpms-config.js"></script>
+		<script src="js/cpms.min.js"></script>
+
+	</body>
+</html>

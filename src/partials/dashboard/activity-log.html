@@ -1,0 +1,45 @@
+<div class="content-section activity-log">
+	<div class="content-section-header">
+		<div class="section-header-left">
+			Activity log<span class="icon icon-dashboard-widget-info" title="Shows all the current issues regarding imports, actions and rule violations, per patient.&#013;Only shows issues from the last 24 hours.&#013;Each row's link leads to the Patient details page for that patient."></span>
+		</div>
+		<div class="section-header-right">
+			<fullscreen></fullscreen>
+		</div>
+	</div>
+
+	<div class="content-section-body">
+		<div class="activity-log-header">
+			<div class="activity-log-filters">
+				Filters:
+				<span class="activity-log-filter imports" ng-if="activityLog.showImportsFilter">
+					<input type="checkbox" id="chkActivityLogImports" name="activityLogFilter" 
+						ng-model="activityLog.showImports" />
+					<label for="chkActivityLogImports">Imports</label>
+				</span>
+				<span class="activity-log-filter actions" ng-if="activityLog.showActionsFilter">
+					<input type="checkbox" id="chkActivityLogActions" name="activityLogFilter"
+						ng-model="activityLog.showActions" />
+					<label for="chkActivityLogActions">Actions</label>
+				</span>
+				<span class="activity-log-filter rule-violations" ng-if="activityLog.showRuleViolationsFilter">
+					<input type="checkbox" id="chkActivityLogRuleViolations" name="activityLogFilter"
+						ng-model="activityLog.showRuleViolations" />
+					<label for="chkActivityLogRuleViolations">Rule violations</label>
+				</span>
+			</div>
+			{{activityLog.currentDate | date:'EEEE, MMMM d, y'}}
+		</div>
+		<div class="activity-log-content loading">
+			<div class="activity-log-row" ng-repeat="item in activityLog.getItems()" ng-show="activityLog.isItemVisible(item)">
+				<div class="activity-log-row-left">
+					<span class="activity-log-time">{{item.time}}</span>
+					<span class="icon icon-activity-log-type" ng-class="item.type" ng-attr-title="{{item.displayType}}"></span>
+				</div>
+				<div class="activity-log-row-right" ng-attr-title="{{item.name + item.text}}">
+					<span ng-if="activityLog.itemHasLink(item)"><a ng-href="{{item.url}}" target="_self">{{item.name}}</a></span>{{item.text}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

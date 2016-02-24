@@ -1,0 +1,49 @@
+<div class="menu-container">
+
+	<div class="menu-section" ng-class="{ expandByDefault:topItem.expandByDefault }" ng-repeat="topItem in menu.items">
+		<div class="menu-header" ng-click="menu.onExpandCollapseClick(topItem)">
+			<div class="menu-header-left">{{topItem.name}}</div>
+			<div class="menu-header-right">
+				<span class="icon" ng-class="{'icon-expand-lg':!topItem.expanded, 'icon-collapse-lg':topItem.expanded}"></span>
+			</div>
+		</div>
+
+		<div class="menu-section-body" ng-show="topItem.expanded">
+
+			<div class="menu-accordion" ng-repeat="accordionItem in topItem.children">
+
+				<div class="menu-accordion-header" ng-click="menu.onExpandCollapseClick(accordionItem)" ng-attr-title="{{accordionItem.name}}">
+					<div class="accordion-left">{{accordionItem.name}}</div>
+					<div class="accordion-right">
+						<span class="icon" ng-class="{'icon-expand':!accordionItem.expanded, 'icon-collapse':accordionItem.expanded}"></span>
+					</div>
+				</div>
+
+				<div class="menu-accordion-body" ng-show="accordionItem.expanded"
+					ng-class="{ 'menu-accordion-no-data':accordionItem.children.length === 0 }">
+					<ul class="menu-tree-parent-list" ng-repeat="treeParentItem in accordionItem.children">
+						<li>
+							<span class="icon menu-tree-view" 
+								ng-class="{'icon-expand':!treeParentItem.expanded, 'icon-collapse':treeParentItem.expanded}"
+								ng-show="menu.itemHasChildren(treeParentItem)"
+								ng-click="menu.onExpandCollapseClick(treeParentItem)"></span>
+
+							<span class="menu-tree-link" ng-class="{ 'active-top':treeParentItem.active }"
+								ng-click="menu.onClick(treeParentItem)">{{treeParentItem.name}}</span>
+								
+							<ul class="menu-tree-child-list" ng-show="treeParentItem.expanded">
+								<li ng-repeat="treeChildItem in treeParentItem.children">
+									<span class="menu-tree-link" ng-class="{ 'active':treeChildItem.active }"
+										ng-click="menu.onClick(treeChildItem)">{{treeChildItem.name}}</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</div>

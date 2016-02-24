@@ -1,0 +1,200 @@
+.tab-view {
+}
+
+.tabs {
+	border-bottom: 1px solid @color-button;
+	margin-bottom: 10px;	
+}
+
+.tabs ul, .tabs li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;	
+}
+
+.tabs li {
+	display: block;
+	height: 40px;
+	float: left;
+
+	text-align: center;
+	font-size: 18px;
+	color: @color-text-faded;
+
+	cursor: pointer;
+}
+
+.tabs li span {
+	display: inline-block;
+	height: 40px;
+	padding-top: 10px;
+}
+
+.tabs li:hover span {
+	border-bottom: 2px solid @color-button;
+}
+
+.tabs li.tab-active {
+	color: @color-button;
+	cursor: default;
+}
+
+.tabs li.tab-active span {
+	border-bottom: 4px solid @color-button;
+}
+
+.grid {
+}
+
+.grid table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.grid thead {
+}
+
+.grid.border {
+	border: 1px solid @color-border;
+	border-bottom: 0;
+}
+
+.grid.border th {
+	border-bottom: 1px solid @color-border;
+}
+
+.grid.border td {
+	border-bottom: 1px solid @color-border;
+}
+
+.grid th {
+	height: 33px;
+	vertical-align: bottom;	
+	padding-bottom: 8px;
+}
+
+.grid th.sort {
+	padding-right: 20px;
+}
+
+.grid th.sort:hover {
+	background-color: @color-foreground-alt !important;
+	cursor: pointer;
+}
+
+.grid th.sort.sort-asc {
+	background: url("../img/sort_asc.png") no-repeat right 4px bottom 10px;
+}
+
+.grid th.sort.sort-desc {
+	background: url("../img/sort_desc.png") no-repeat right 4px bottom 10px;
+}
+
+.grid tbody {
+	border-top: 1px solid @color-background;
+}
+
+.grid tbody tr {
+	border-bottom: 1px solid @color-background;
+}
+
+.grid tr.search-row th {
+	padding: 10px;
+}
+
+.grid tr.search-row .search {
+	height: 27px;
+	border: 1px solid @color-border;
+	padding: 3px 5px 3px 5px;
+	overflow: hidden;
+	font-weight: normal;
+
+	background: url("../img/search.png") no-repeat right 4px center;
+}
+
+.grid tr.search-row .search.no-image {
+	background: transparent;
+}
+
+.grid tr.search-row input[type="text"] {
+	float: left;
+	outline: 0;
+	border: 0;
+	width: 100%;
+	background: transparent;
+}
+
+.grid tbody tr:hover {
+	background-color: @color-foreground-hover !important;
+}
+
+.grid tbody tr:nth-child(even) {
+	background-color: @color-foreground-alt;
+}
+
+.grid td {
+	padding: 0 10px 0 10px;
+	height: 50px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.grid td.align-center {
+	padding-left: 0;
+	text-align: center;
+}
+
+.grid td:first-child {
+	border-left: 0;
+}
+
+.grid td:last-child {
+	border-right: 0;
+}
+
+.grid .footer {
+	height: 43px;
+	padding: 8px;
+	overflow: hidden;
+}
+
+.grid-messages div {
+	height: 100px;
+}
+
+.grid-messages .loading {
+	background: url(../img/loading.gif) no-repeat center @color-foreground;
+}
+
+.grid-messages .no-data, .fail {
+	text-align: center;	
+	padding-top: 38px;
+}
+
+.info-grid {
+	margin-bottom: 20px;
+}
+
+.info-grid tr {
+	height: 25px;
+}
+
+.info-grid td:first-child {
+	width: 200px;
+	padding: 0 0 0 11px;
+}
+
+.info-grid td:not(:first-child) {
+}
+
+.link-tab:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.link-tab.active {
+	cursor: default;
+	text-decoration: none;
+}

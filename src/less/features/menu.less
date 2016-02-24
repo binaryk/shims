@@ -1,0 +1,123 @@
+.menu-container {
+	float: left;
+	width: 270px;
+	background-color: @color-menu-light;
+}
+
+.menu-header {
+	height: 50px;
+	color: @color-text-light;
+	background-color: @color-menu-dark;
+	padding: 15px 0 0 23px;
+	cursor: pointer;
+}
+
+.menu-header .icon {
+	width: 29px;
+	height: 29px;
+}
+
+.menu-header:hover {
+	background-color: @color-menu-dark-hover;
+}
+
+.menu-header-left {
+	float: left;	
+}
+
+.menu-header-right {
+	float: right;
+	margin-top: -4px;
+	margin-right: 13px;
+}
+
+.menu-accordion {	
+	color: @color-text-light;
+}
+
+.menu-accordion-header {
+	background-color: @color-menu-light;
+	height: 50px;
+	padding: 15px 0 0 23px;
+	border-bottom: 1px solid @color-menu-dark-alt;
+	cursor: pointer;
+}
+
+.menu-accordion-header:hover {
+	background-color: @color-menu-light-hover !important;
+}
+
+.menu-accordion-body {
+	background-color: @color-menu-dark-alt;
+	padding: 13px 0 10px 15px;
+}
+
+.accordion-left {
+	width: 200px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	float: left;
+}
+
+.accordion-right {
+	float: right;
+	margin-right: 19px;
+}
+
+.menu-accordion-no-data {
+	height: 200px;
+}
+
+.menu-tree-link {
+	cursor: pointer;
+}
+
+.menu-tree-link.active-top {
+	text-decoration: underline;
+	cursor: default;
+}
+
+.menu-tree-link.active {
+	color: @color-text-light !important;
+	cursor: default;
+	font-weight: bold;
+}
+
+.menu-tree-link.active:hover {
+	text-decoration: none;
+}
+
+.menu-tree-link:hover {
+	text-decoration: underline;
+}
+
+.menu-tree-parent-list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;	
+}
+
+.menu-tree-parent-list:not(:last-child) > li {
+	margin-bottom: 10px;
+}
+
+.menu-tree-view {
+	vertical-align: top;
+	margin-right: 8px;
+	cursor: pointer;
+}
+
+.menu-tree-child-list {	
+	margin: 0;	
+	padding: 6px 0 6px 29px;
+	list-style-type: none;
+}
+
+.menu-tree-child-list li {
+	padding: 4px 0 4px 0;
+}
+
+.menu-tree-child-list li .menu-tree-link {	
+	color: @color-text-light;
+}

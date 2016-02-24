@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html ng-app="cpms">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title ng-bind="appTitle"></title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" ng-href="{{appTheme}}">
+	</head>
+
+	<body>
+
+		<page class="hide">
+			<div class="content-header">
+			</div>
+			<div class="content-body" ng-controller="ManageDashboardController as dashboard">
+
+				<div class="content-section">
+					<div class="content-section-body manage-dashboard">
+
+						<div class="container">
+							<div class="left">
+								<div class="text">Available widgets:</div>
+								<div class="listbox">
+									<ul>
+										<li ng-repeat="item in dashboard.availableWidgets"
+											ng-click="dashboard.setSelectedAvailableWidget(item)"
+											ng-class="{'active':item === dashboard.selectedAvailableWidget}">{{item.name}}</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="middle">
+								<button class="move-right" ng-click="dashboard.moveRight()">&gt;</button><br/>
+								<button class="move-left" ng-click="dashboard.moveLeft()">&lt;</button>
+							</div>
+
+							<div class="right">
+								<div class="text">Visible widgets:</div>
+								<div class="listbox">
+									<ul>
+										<li ng-repeat="item in dashboard.visibleWidgets"
+											ng-click="dashboard.setSelectedVisibleWidget(item)"
+											ng-class="{'active':item === dashboard.selectedVisibleWidget}">{{item.name}}</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="right-buttons">
+								<button class="move-up" ng-click="dashboard.moveUp()">&and;</button><br/>
+								<button class="move-down" ng-click="dashboard.moveDown()">&or;</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</page>
+
+		<script src="js/cpms-vendor.min.js"></script>
+		<script src="js/cpms-config.js"></script>
+		<script src="js/cpms.min.js"></script>
+
+	</body>
+</html>
